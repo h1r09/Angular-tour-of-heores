@@ -2,8 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Hero } from '../hero';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-
 import { HeroService } from '../hero.service';
+import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -14,7 +14,9 @@ import { HeroService } from '../hero.service';
 
 export class HeroDetailComponent implements OnInit {
 
-  @Input() hero?: Hero;
+  faTrashCan = faTrashCan;
+  @Input()
+  hero!: Hero;
 
   constructor(
     private route: ActivatedRoute,
@@ -36,4 +38,19 @@ export class HeroDetailComponent implements OnInit {
   goBack(): void {
     this.location.back();
   }
+
+
+  addPower(): void {
+    const poder = document.getElementById('hero-power') as HTMLInputElement;
+    this.hero.superpoderes.push(poder.value);
+    poder.value = '';
+  }
+
+  removePower(power: string): void{
+    this.hero.superpoderes.forEach((item, index) => {
+      if(item === power){
+        this.hero.superpoderes.splice(index, 1);
+      }
+    });}
+
 }

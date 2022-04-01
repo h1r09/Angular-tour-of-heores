@@ -1,11 +1,37 @@
 <div *ngIf="hero">
+  <h2>{{ hero.name | uppercase }} Details</h2>
 
-  <h2>{{hero.name | uppercase}} Details</h2>
-  <button type="button" (click)="goBack()">go back</button>
-  <div><span>id: </span>{{hero.id}}</div>
+  <div><span>id: </span>{{ hero.id }}</div>
   <div>
     <label for="hero-name">Hero name: </label>
-    <input id="hero-name" [(ngModel)]="hero.name" placeholder="name">
+    <input id="hero-name" [(ngModel)]="hero.name" placeholder="name" />
   </div>
+  <br /><br />
+  <div>
+    <label for="hero-power">Poder: </label>
+    <input id="hero-power" placeholder="Introduzca el poder a añadir ..." />
+  </div>
+<br>
+  <button (click)="addPower()">Agregar poder</button>
+
+  <h4>Los superpoderes de {{ hero.name | uppercase }} son:</h4>
+
+  <div *ngFor="let poderes of hero.superpoderes">
+    {{ poderes }}
+
+    <button (click)="removePower(poderes)"> <fa-icon [icon]="faTrashCan"></fa-icon></button>
+  </div>
+
+  <br />
+  <div>
+    <button type="button" (click)="goBack()">Volver</button>
+  </div>
+
+  <!-- Impresion tipo 2 -->
+  <!-- <div *ngIf="hero.power" class="power">
+    <span>Power: </span>
+    <span>{{hero.power}}</span>
+
+  </div> -->
   <!-- <button type="button" (click)="goBack()">go back</button> -->
 </div>
