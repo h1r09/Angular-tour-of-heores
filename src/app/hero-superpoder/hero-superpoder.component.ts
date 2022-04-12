@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Hero } from '../hero';
 import { HeroService } from '../hero.service';
+import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-hero-superpoder',
@@ -9,8 +10,9 @@ import { HeroService } from '../hero.service';
   styleUrls: ['./hero-superpoder.component.scss']
 })
 export class HeroSuperpoderComponent implements OnInit {
-
-  @Input() hero?: Hero;
+  faTrashCan = faTrashCan;
+  @Input()
+  hero!: Hero;
 
   constructor(private route: ActivatedRoute,
     private heroService: HeroService,) { }
@@ -25,7 +27,7 @@ export class HeroSuperpoderComponent implements OnInit {
       .subscribe(hero => this.hero = hero);
   }
 
-  newSuperpower(): void {
+  addSuperpoder(): void {
     if(this.hero?.superpoderes != undefined){
       this.hero?.superpoderes?.push("");
       return;
@@ -33,7 +35,7 @@ export class HeroSuperpoderComponent implements OnInit {
     this.hero!.superpoderes = [""];
   }
 
-  rmSuperpower(superpoder: string): void {
+  deleteSuperpoder(superpoder: string): void {
     this.hero?.superpoderes?.forEach((element,index)=>{
       if(element==superpoder) this.hero?.superpoderes?.splice(index,1);
    });
