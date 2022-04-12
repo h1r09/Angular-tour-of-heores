@@ -33,23 +33,24 @@ export class HeroDetailComponent implements OnInit {
     this.location.back();
   }
 
-  addPower(): void {
-    const poder = document.getElementById('hero-power') as HTMLInputElement;
-    this.hero.superpoderes.push(poder.value);
-    poder.value = '';
-  }
-
-  removePower(power: string): void {
-    this.hero.superpoderes.forEach((item, index) => {
-      if (item === power) {
-        this.hero.superpoderes.splice(index, 1);
-      }
-    });
-  }
-
   save(): void {
     if (this.hero) {
       this.heroService.updateHero(this.hero).subscribe(() => this.goBack());
     }
   }
+  // addPower(): void {
+  //   const poder = document.getElementById('hero-power') as HTMLInputElement;
+  //   this.hero.superpoderes.push(poder.value);
+  //   poder.value = '';
+  // }
+
+  // removePower(power: string): void {
+  //   this.hero.superpoderes.forEach((item, index) => {
+  //     if (item === power) {
+  //       this.hero.superpoderes.splice(index, 1);
+  //     }
+  //   });
+  // }
+
+
 }

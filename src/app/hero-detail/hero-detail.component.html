@@ -7,27 +7,28 @@
     <input id="hero-name" [(ngModel)]="hero.name" placeholder="name" />
   </div>
   <br /><br />
-  <div>
+  <!-- Impresion de superpoderes medinate version anterior -->
+  <!-- <div>
     <label for="hero-power">Poder: </label>
     <input id="hero-power" placeholder="Introduzca el poder a añadir ..." />
   </div>
 <br>
   <button (click)="addPower()">Agregar poder</button>
 
-  <h4>Los superpoderes de {{ hero.name | uppercase }} son:</h4>
+
 
   <div *ngFor="let poderes of hero.superpoderes">
     {{ poderes }}
 
     <button (click)="removePower(poderes)"> <fa-icon [icon]="faTrashCan"></fa-icon></button>
-  </div>
+  </div> -->
 
+  <h4>Los superpoderes de {{ hero.name | uppercase }} son:</h4>
+  <app-hero-superpoder [hero]="hero"></app-hero-superpoder>
   <br />
   <div>
     <button type="button" (click)="goBack()">Volver</button>
-  </div>
-  <div>
-    <button type="button" (click)="save()">Guardar</button>
+    <button class="button" type="button" (click)="save()">Guardar</button>
   </div>
 
   <!-- Impresion tipo 2 -->
