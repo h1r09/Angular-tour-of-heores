@@ -53,6 +53,11 @@ export class HeroService {
     );
   }
 
+  getImage(hero: Hero): Observable<String> {
+    const url = `https://gateway.marvel.com:443/v1/public/characters?nameStartsWith=${hero.name}&ts=1000&apikey=45db5fdb4c9455b151c9c5512e230d61&hash=9b7fb8ff1d0b00a1dc944bd3a06f8071`;
+    return this.http.get<String>(url);
+  }
+
   /* GET heroes whose name contains search term */
   searchHeroes(term: string): Observable<Hero[]> {
     if (!term.trim()) {

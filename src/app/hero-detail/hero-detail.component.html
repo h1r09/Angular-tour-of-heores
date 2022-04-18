@@ -23,6 +23,11 @@
     <button (click)="removePower(poderes)"> <fa-icon [icon]="faTrashCan"></fa-icon></button>
   </div> -->
 
+<div *ngIf="image">
+  <img class ="foto" src="{{image}}"/>
+</div>
+
+
   <h4>Los superpoderes de {{ hero.name | uppercase }} son:</h4>
   <app-hero-superpoder [hero]="hero"></app-hero-superpoder>
   <br />
