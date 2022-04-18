@@ -3,6 +3,15 @@ label {
   color: #435960;
   font-weight: bold;
 }
+
+.foto {
+  border-style: solid;
+  border-width: 2px;
+  height: 300px;
+  width: 300px;
+  box-shadow: 15px 15px 10px rgba(67, 70, 71, 0.623);
+
+}
 input {
   font-size: 1em;
   padding: .5rem;
